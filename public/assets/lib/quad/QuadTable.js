@@ -1189,6 +1189,11 @@
                                                 );
                                         if (dat.status && dat.status == "deleted") {
                                             obj.deleteTableRow(dat, "#" + window.copyEditorData.DT_RowId);
+                                            $("#" + obj.tableId)
+                                                .DataTable()
+                                                .columns.adjust()
+                                                .responsive.recalc();
+                                            $(window).trigger("resize");
                                         }
                                         $("." + obj.tableId + "_spinner").hide();
                                         if (
@@ -1213,6 +1218,11 @@
                                                             });
                                                             obj.showCountInfo();
                                                         }
+                                                        $("#" + obj.tableId)
+                                                            .DataTable()
+                                                            .columns.adjust()
+                                                            .responsive.recalc();
+                                                        $(window).trigger("resize");
                                                     }
                                             );
                                         }

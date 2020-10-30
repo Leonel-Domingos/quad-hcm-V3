@@ -1017,7 +1017,7 @@
             beforeSend: function () {
                 obj.showSpinner();
             },
-            
+
         }).done(function () {
             obj.instanceUpToDate();
 
@@ -1964,34 +1964,34 @@
                     if (status === false) {
                         $("a[data-form-action=new]", frm).hide();
                         $("a[data-form-action=new]", frm).off("click");
-                    } else {
+                    } /*else {
                         if(flag){
                             $("a[data-form-action=new]", frm).show();
                         }
-                     }
+                     }*/
                 }
 
                 if (i === 1) {
                     if (status === false) {
                         $("a[data-form-action=edit]", frm).hide();
                         $("a[data-form-action=edit]", frm).off("click");
-                    } else {
+                    } /*else {
                         if(flag){
                           $("a[data-form-action=edit]", frm).show();
                         }
 
-                     }
+                     }*/
                 }
                 if (i === 2) {
                     if (status === false) {
                         $("a[data-form-action=delete]", frm).hide();
                         $("a[data-form-action=delete]", frm).off("click");
-                    } else {
+                    } /*else {
                          if(flag){
                            $("a[data-form-action=delete]", frm).show();
                          }
 
-                     }
+                     }*/
                 }
             });
         }

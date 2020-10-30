@@ -1130,7 +1130,6 @@ debugger;
 //      }
             });
         }
-
         this.resetButtonsState(frm, obj.totalRecords, recordPos);
 
         if (obj.myData["data"][recordPos]) {

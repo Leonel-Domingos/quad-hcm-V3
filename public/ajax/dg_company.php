@@ -1,6 +1,14 @@
 <?php
     require_once '../init.php';
 ?>
+<style>
+    /* CHOSEN ON LAST LINE, RESULTS MUST GROW to SHOW ALL RESULTS :: "Actividades Económicas" */
+    #DG_EMPRESAS_CONTINUED > fieldset:nth-child(7) > div > div:nth-child(1) > div,
+    #DG_EMPRESAS_CONTINUED > fieldset:nth-child(7) > div > div:nth-child(2) > div, 
+    #DG_EMPRESAS_CONTINUED > fieldset:nth-child(7) > div > div:nth-child(3) > div {
+        max-height: fit-content;
+    }
+</style>
 <div class="row">
     <div class="col-xl-12">
         <div id="panel-11" class="panel">
@@ -9,7 +17,7 @@
                 <h2><?php echo $ui_company; ?></h2>
             </div>
             <div class="panel-container show">
-                <div class="panel-content">
+                <div class="panel-content">                                            
                     <a id="DG_EMPRESAS_dtAdvancedSearch" class="dtAdvancedSearch btn btn-primary btn-sm btn-icon waves-effect waves-themed"  href="#"><i class="fas fa-search"></i></a>
                     <table id="DG_EMPRESAS" class="table responsive table-bordered table-striped table-hover nowrap"></table>
                 </div>
@@ -46,11 +54,11 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-
+            </div>   
+            
             <div class="panel-container show">
                 <div class="panel-content">
-
+                    
                     <div class="tab-content">
 
                          <!-- TAB #1 -->
@@ -111,24 +119,21 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>
-                                                        <input class="form-control toRight" name="TX_NACIONAL"
-                                                               style="width:50px;">
+                                                        <input class="form-control toRight" name="TX_NACIONAL"style="width: 90%;">
                                                     </td>
                                                     <td style="padding-left: 7px;">
-                                                        <input class="form-control toRight" name="TX_ESTRANG"
-                                                               style="width:50px;">
+                                                        <input class="form-control toRight" name="TX_ESTRANG" style="width: 90%;">
                                                     </td>
                                                     <td style="padding-left: 7px;">
-                                                        <input class="form-control toRight" name="TX_PUBLICO"
-                                                               style="width:50px;">
+                                                        <input class="form-control toRight" name="TX_PUBLICO" style="width: 90%;">
                                                     </td>
                                                 <tr>
                                                 </tbody>
                                                 <tfoot>
                                                 <tr>
-                                                    <th><?php echo $ui_public_equity; ?></th>
-                                                    <th style="padding-left: 7px;"><?php echo $ui_foreign_equity; ?></th>
-                                                    <th style="padding-left: 7px;"><?php echo $ui_public_equity; ?></th>
+                                                    <th class="help-block"><?php echo $ui_domestic_equity; ?></th>
+                                                    <th class="help-block" style="padding-left: 7px;"><?php echo $ui_foreign_equity; ?></th>
+                                                    <th class="help-block" style="padding-left: 7px;"><?php echo $ui_public_equity; ?></th>
                                                 </tr>
                                                 </tfoot>
                                             </table>
@@ -156,7 +161,7 @@
                                         </div>
                                     </div>
                                 </fieldset>
-
+                                                                        
                                 <fieldset class="first-line">
                                     <header class="frmInnerHeader"><?php echo $ui_employers_associations; ?></header>
                                     <div class="form-row">
@@ -213,8 +218,7 @@
                                         </div>
                                         <div class="panel-container show">
                                             <div class="panel-content">
-                                                <form action="" id="DG_DET_EMPRESA" class="form-horizontal-standard"
-                                                      novalidate="novalidate">
+                                                <form action="" id="DG_DET_EMPRESA" class="form-horizontal-standard" novalidate="novalidate">
                                                     <form-toolbar></form-toolbar>
                                                     <fieldset style="display:none;">
                                                         <div class="form-group">
@@ -222,46 +226,47 @@
                                                         </div>
                                                     </fieldset>
                                                     <fieldset class="first-line">
-                                                        <header class="frmInnerHeader"><?php echo $ui_economic_activities; ?></header>
-                                                        <div class="form-group col-xs-6 mr-4">
-                                                            <label for="RH_PRG_DC"><?php echo $ui_program; ?></label>
-                                                            <input class="form-control" name="RH_PRG_DC">
-                                                        </div>
-
-                                                        <div class="form-group col-xs-6">
-                                                            <label for="RH_CADUCA_DC"><?php echo $ui_validity_implementation; ?></label>
-                                                            <select class="form-control domainLists required"
-                                                                    name="RH_CADUCA_DC"></select>
+                                                        <header class="frmInnerHeader"><?php echo $ui_compensatory_rest; ?></header>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="RH_PRG_DC"><?php echo $ui_program; ?></label>
+                                                                <input class="form-control visibleColumn" name="RH_PRG_DC">
+                                                            </div>                                                        
+                                                            <div class="form-group col-md-6">
+                                                                <label for="RH_CADUCA_DC"><?php echo $ui_validity_implementation; ?></label>
+                                                                <select class="form-control domainLists chosen visibleColumn" name="RH_CADUCA_DC"></select>
+                                                            </div>
                                                         </div>
                                                     </fieldset>
                                                     <fieldset class="first-line mt-4">
                                                         <header class="frmInnerHeader"><?php echo $ui_integration_from_time_attendance_to; ?></header>
-                                                        <div class="form-group col-xs-6">
-                                                            <label for="RH_PRG_PONTO_AUSENCIAS"><?php echo $ui_absences; ?></label>
-                                                            <input class="form-control"
-                                                                   name="RH_PRG_PONTO_AUSENCIAS">
-                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="RH_PRG_PONTO_AUSENCIAS"><?php echo $ui_absences; ?></label>
+                                                                <input class="form-control visibleColumn" name="RH_PRG_PONTO_AUSENCIAS">
+                                                            </div>
 
-                                                        <div class="form-group col-xs-6">
-                                                            <label for="RH_PRG_PONTO_TS"><?php echo $ui_overtime_work; ?></label>
-                                                            <input class="form-control" name="RH_PRG_PONTO_TS">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="RH_PRG_PONTO_TS"><?php echo $ui_overtime_work; ?></label>
+                                                                <input class="form-control visibleColumn" name="RH_PRG_PONTO_TS">
+                                                            </div>
                                                         </div>
                                                     </fieldset>
                                                     <fieldset class="first-line mt-4">
                                                         <header class="frmInnerHeader"><?php echo $ui_integration_to_pay_slip; ?></header>
-                                                        <div class="form-group col-xs-6">
-                                                            <label for="RH_PRG_AUSENCIAS_RECIBO"><?php echo $ui_absences; ?></label>
-                                                            <select class="form-control domainLists"
-                                                                    name="RH_PRG_AUSENCIAS_RECIBO"></select>
-                                                        </div>
-                                                        <div class="form-group col-xs-6">
-                                                            <label for="RH_PRG_TS_RECIBO"><?php echo $ui_overtime_work; ?></label>
-                                                            <input class="form-control" name="RH_PRG_TS_RECIBO">
-                                                        </div>
-                                                        <div class="form-group col-xs-6">
-                                                            <label for="RH_PRG_HV_RECIBO"><?php echo $ui_traveling_hours; ?></label>
-                                                            <select class="form-control domainLists"
-                                                                    name="RH_PRG_HV_RECIBO"></select>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label for="RH_PRG_AUSENCIAS_RECIBO"><?php echo $ui_absences; ?></label>
+                                                                <input class="form-control visibleColumn" name="RH_PRG_AUSENCIAS_RECIBO">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="RH_PRG_TS_RECIBO"><?php echo $ui_overtime_work; ?></label>
+                                                                <input class="form-control visibleColumn" name="RH_PRG_TS_RECIBO">
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label for="RH_PRG_HV_RECIBO"><?php echo $ui_traveling_hours; ?></label>
+                                                                <input class="form-control visibleColumn" name="RH_PRG_HV_RECIBO">
+                                                            </div>
                                                         </div>
                                                     </fieldset>
                                                 </form>
@@ -270,7 +275,7 @@
                                     </div>
                                 </div>
 <!--                            </div>-->
-
+                            
 <!--                            <div class="row mt-4">-->
                                 <div class="col-md-6">
                                     <div id="panel-22" class="panel">
@@ -362,7 +367,7 @@
                             </div>
                         </div>
                          <!-- END TAB #3 -->
-
+                         
                          <!-- TAB #4 -->
                         <div class="tab-pane fade" id="Tab4" role="tabpanel">
                             <a id="DG_ESTABELECIMENTOS_dtAdvancedSearch" class="dtAdvancedSearch btn btn-primary btn-sm btn-icon waves-effect waves-themed"  href="#"><i class="fas fa-search"></i></a>
@@ -403,7 +408,7 @@
                             </div>
                         </div>
                          <!-- END TAB #4 -->
-
+                         
                          <!-- TAB #5 -->
                         <div class="tab-pane fade" id="Tab5" role="tabpanel">
                             <a id="DG_DIRECOES_dtAdvancedSearch" class="dtAdvancedSearch btn btn-primary btn-sm btn-icon waves-effect waves-themed"  href="#"><i class="fas fa-search"></i></a>
@@ -427,7 +432,7 @@
                             </div>
                         </div>
                          <!-- END TAB #5 -->
-
+                
                          <!-- TAB #6 -->
                         <div class="tab-pane fade" id="Tab6" role="tabpanel">
                             <a id="DG_ENTIDADES_INTERNAS_dtAdvancedSearch" class="dtAdvancedSearch btn btn-primary btn-sm btn-icon waves-effect waves-themed"  href="#"><i class="fas fa-search"></i></a>
@@ -442,7 +447,7 @@
                                         <div class="panel-container show">
                                             <div class="panel-content">
                                                 <a id="DG_ENTIDADE_INTERNA_TRADS_dtAdvancedSearch" class="dtAdvancedSearch btn btn-primary btn-sm btn-icon waves-effect waves-themed"  href="#"><i class="fas fa-search"></i></a>
-                                                <table id="DG_ENTIDADE_INTERNA_TRADS" class="table table-bordered table-hover table-striped w-100"></table>
+                                                <table id="DG_ENTIDADE_INTERNA_TRADS" class="table table-bordered table-hover table-striped w-100 nowrap"></table>
                                             </div>
                                         </div>
                                     </div>
@@ -450,17 +455,17 @@
                             </div>
                         </div>
                          <!-- END TAB #6 -->
-
+                
                          <!-- TAB #7 -->
                         <div class="tab-pane fade" id="Tab7" role="tabpanel">
                             <a id="DG_ESTRUTURAS_dtAdvancedSearch" class="dtAdvancedSearch btn btn-primary btn-sm btn-icon waves-effect waves-themed"  href="#"><i class="fas fa-search"></i></a>
                             <table id="DG_ESTRUTURAS" class="table responsive table-bordered table-striped table-hover nowrap"></table>
                         </div>
                          <!-- END TAB #7 -->
-                    </div>
-                </div>
+                    </div>                    
+                </div>                    
 
-            </div>
+            </div> 
         </div>
     </div>
 </div>
@@ -495,7 +500,7 @@
                 "order_by": "NVL(NR_ORDEM, EMPRESA)",
                 "recordBundle": 4,
                 "pageLenght": 4,
-                "scrollY": "117",
+                "scrollY": "132",
                 "responsive": true,
                 "pageResize": true, //PLUGIN :: dataTables.pageResize.min.js
                 "tableCols": [
@@ -511,6 +516,7 @@
                         "data": 'EMPRESA',
                         "name": 'EMPRESA',
                         "className": "visibleColumn",
+                        "width": "1%",
                         "attr": {
                             "style": "width:30%;",
                         }
@@ -520,7 +526,7 @@
                         "label": "<?php echo $ui_designation; ?>",
                         "data": 'DSP_EMPRESA',
                         "name": 'DSP_EMPRESA',
-                        "className": "visibleColumn",
+                        "className": "visibleColumn"
                     }, {
                         "responsivePriority": 3,
                         "title": "<?php echo mb_strtoupper($ui_nif_short, 'UTF-8'); ?>",
@@ -528,6 +534,7 @@
                         "data": 'NIF',
                         "name": 'NIF',
                         "className": "visibleColumn",
+                        "width": "1%"
                     }, {
                         "responsivePriority": 4,
                         "title": "<?php echo mb_strtoupper($ui_RU_code, 'UTF-8'); ?>",
@@ -535,6 +542,7 @@
                         "data": 'ID_RU',
                         "name": 'ID_RU',
                         "className": "visibleColumn",
+                        "width": "1%"
                     }, {
                         "responsivePriority": 5,
                         "title": "<?php echo mb_strtoupper($ui_active, 'UTF-8'); ?>", //Datatables
@@ -544,6 +552,7 @@
                         "type": "select",
                         "def": "N",
                         "className": "visibleColumn",
+                        "width": "1%",
                         "attr": {
                             "domain-list": true,
                             "dependent-group": 'DG_SIM_NAO',
@@ -564,6 +573,7 @@
                         "name": 'DT_INACTIVO',
                         "datatype": 'date',
                         "className": "visibleColumn",
+                        "width": "1%",
                         "attr": {
                             "class": "datepicker"
                         }
@@ -574,6 +584,7 @@
                         "data": 'NR_ORDEM',
                         "name": 'NR_ORDEM',
                         "className": "visibleColumn",
+                        "width": "1%",
                         "attr": {
                             "style": "width:20%;"
                         }
@@ -678,10 +689,10 @@
                 },
                 // "initialWhereClause": " SEXO = 'M' ", optional
                 //"order_by": "NOME",
-                //detailsObjects: ['qTableDocs', 'qTableAgregados', 'Documentos', 'Agregados'],
+                //detailsObjects: ['qTableDocs', 'qTableAgregados', 'Documentos', 'Agregados'],                
                 "recordBundle": 1,
                 crud: [false, true, false],//create,update,delete
-                defaultButtons: ['enter-query', 'new'],
+                defaultButtons: ['edit'],
                 refreshData: true, //default true
                 queryAll: false,//defaults to true ...empty search return all records
                 showMultiRecord: false, //default true
@@ -774,9 +785,9 @@
 
             //Empresas Configuração :: QUADFORMS
             var optionsDG_DET_EMPRESA = {
-                formId: "#DG_DET_EMPRESA",
-                table: "DG_DET_EMPRESA",
-                info: true, //Disables INFO: (record / total records) :: HOW ????
+                "formId": "#DG_DET_EMPRESA",
+                "table": "DG_DET_EMPRESA",
+                "info": true, //Disables INFO: (record / total records) :: HOW ????
                 "pk": {
                     "primary": {
                         "EMPRESA": {"type": "varchar"}
@@ -789,53 +800,25 @@
                 },
                 // "initialWhereClause": " SEXO = 'M' ", optional
                 //"order_by": "NOME",
-                //detailsObjects: ['qTableDocs', 'qTableAgregados', 'Documentos', 'Agregados'],
+                //detailsObjects: ['qTableDocs', 'qTableAgregados', 'Documentos', 'Agregados'],                
                 "recordBundle": 1,
-                crud: [false, true, false],//create,update,delete
-                defaultButtons: ['enter-query', 'new'],
-                refreshData: true, //default true
-                queryAll: false,//defaults to true ...empty search return all records
-                showMultiRecord: false, //default true
+                "crud": [true, true, false],//create,update,delete
+                "defaultButtons": ['enter-query','new'],
+                "refreshData": true, //default true
+                "queryAll": false,//defaults to true ...empty search return all records
+                "showMultiRecord": false, //default true
                 //workflow: true, //optional defaults to false
-                showWorkflowOnEdit: false,
+                "showWorkflowOnEdit": false,
                 domainLists: {
-                    NATUREZA_JURIDICA: {
+                    RH_CADUCA_DC: {
                         "domain-list": true,
-                        "dependent-group": "DG_NATUREZA_JURIDICA"
-                    },
-                    REPARTICAO_FISCAL: {
-                        "domain-list": true,
-                        "dependent-group": "DG_REPARTICAO_FISCAL"
-                    },
-                    ASSOCIACAO_1: {
-                        "domain-list": true,
-                        "dependent-group": "DG_ASSOCIACAO_PATRONAL"
-                    },
-                    ASSOCIACAO_2: {
-                        "domain-list": true,
-                        "dependent-group": "DG_ASSOCIACAO_PATRONAL"
-                    },
-                    ASSOCIACAO_3: {
-                        "domain-list": true,
-                        "dependent-group": "DG_ASSOCIACAO_PATRONAL"
-                    },
-                    ACTIV_ECONOMICA_1: {
-                        "domain-list": true,
-                        "dependent-group": "DG_ACTIVIDADES_ECONOMICAS"
-                    },
-                    ACTIV_ECONOMICA_2: {
-                        "domain-list": true,
-                        "dependent-group": "DG_ACTIVIDADES_ECONOMICAS"
-                    },
-                    ACTIV_ECONOMICA_3: {
-                        "domain-list": true,
-                        "dependent-group": "DG_ACTIVIDADES_ECONOMICAS"
+                        "dependent-group": "DG_SIM_NAO"
                     }
                 },
                 validations: {
-                    rules: {
+                    rules: {           
                         RH_CADUCA_DC: {
-                            required: true,
+                            required: true
                         },
                         RH_PRG_TS_RECIBO: {
                             maxlength: 30
@@ -889,7 +872,7 @@
                         "responsivePriority": 1,
                         "data": null,
                         "className": "control toBottom toCenter",
-                        "width": "1%",
+                        "width": "17px",
                         "defaultContent": ''
                     }, {
                         "title": "", //Datatables
@@ -936,7 +919,7 @@
                         "type": "select",
                         "className": "visibleColumn",
                         //"visible": false, //DataTables
-                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...
+                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...                    
                         "attr": {
                             "deferred": true,
                             "dependent-group": "ANOS_FISCAIS",
@@ -1040,8 +1023,8 @@
                         "title": '<button class="btn btn-xs btn-success tblCreateBut"><i class="fas fa-plus fa-xs"></i></button>',
                         "name": 'BUTTONS',
                         "type": "hidden",
-                        "width": "6%",
-                        "className": "toBottom toCenter",
+//                        "width": "6%",
+                        "className": "toBottom toCenter pl-1 pr-1",
                         "render": function () {
                             //debugger;
                             return DG_SERIE_DOCUMENTOS.crudButtons(true, true, true);
@@ -1117,9 +1100,9 @@
                 "detailsObjects": ['DG_SETORES', 'DG_ESTAB_SITUACOES'],
                 //"initialWhereClause": "",
                 "order_by": "CD_ESTAB",
-                "recordBundle": 5,
-                "pageLenght": 5,
-                "scrollY": "156",
+                "recordBundle": 6,
+                "pageLenght": 6,
+                "scrollY": "220",
                 "responsive": true,
                 "pageResize": true, //PLUGIN :: dataTables.pageResize.min.js
                 "tableCols": [
@@ -1254,7 +1237,7 @@
                         "data": 'CD_PAIS',
                         "name": 'CD_PAIS',
                         "type": "hidden", //Editor
-                        "visible": false, //DataTables
+                        "visible": false, //DataTables   
                     }, {
                         "complexList": true,
                         "title": "<?php echo mb_strtoupper($ui_country, 'UTF-8'); ?>",
@@ -1263,7 +1246,7 @@
                         "name": 'DSP_PAIS',
                         "type": "select",
                         "className": "none visibleColumn",
-                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...
+                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...                    
                         "attr": {
                             "dependent-group": "PAISES",
                             "dependent-level": 1,
@@ -1280,7 +1263,7 @@
                         "name": 'CD_POSTAL',
                         "className": "none visibleColumn",
                         "attr": {
-                            "style": "width: 25%;",
+                            "style": "width: 45%;",
                         }
                     }, {
                         "title": "<?php echo mb_strtoupper($ui_postal_num, 'UTF-8'); ?>", //Datatables
@@ -1289,7 +1272,7 @@
                         "name": 'NR_ORDEM_POSTAL',
                         "className": "none visibleColumn",
                         "attr": {
-                            "style": "max-width: 25%",
+                            "style": "max-width: 45%",
                         }
                     }, {
                         "title": "<?php echo mb_strtoupper($ui_phone_short . ' #1', 'UTF-8'); ?>", //Datatables :: Original
@@ -1374,7 +1357,7 @@
                         "name": 'DSP_DISTRITO',
                         "type": "select",
                         "className": "none visibleColumn",
-                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...
+                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...                    
                         "attr": {
                             "dependent-group": "PAISES",
                             "dependent-level": 2,
@@ -1390,7 +1373,7 @@
                         "data": 'CD_CONCELHO',
                         "name": 'CD_CONCELHO',
                         "type": "hidden", //Editor
-                        "visible": false, //DataTables
+                        "visible": false, //DataTables 
                     }, {
                         "complexList": true,
                         "title": "<?php echo mb_strtoupper($ui_municipality, 'UTF-8'); ?>",
@@ -1399,7 +1382,7 @@
                         "name": 'DSP_CONCELHO',
                         "type": "select",
                         "className": "none visibleColumn",
-                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...
+                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...                    
                         "attr": {
                             "dependent-group": "PAISES",
                             "dependent-level": 3,
@@ -1415,7 +1398,7 @@
                         "data": 'CD_FREGUESIA',
                         "name": 'CD_FREGUESIA',
                         "type": "hidden", //Editor
-                        "visible": false, //DataTables
+                        "visible": false, //DataTables 
                     }, {
                         "complexList": true,
                         "title": "<?php echo mb_strtoupper($ui_parish, 'UTF-8'); ?>",
@@ -1424,7 +1407,7 @@
                         "name": 'DSP_FREGUESIA',
                         "type": "select",
                         "className": "none visibleColumn",
-                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...
+                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...                    
                         "attr": {
                             "dependent-group": "PAISES",
                             "dependent-level": 4,
@@ -1440,14 +1423,14 @@
                         "data": '',
                         "name": 'TIT_PAGA_FERIAS',
                         "type": "readonly",
-                        "className": "none",
+                        "className": "title none",
                         "defaultContent": "", //Must be used on STATIC columns content. On this case classes make there way...
                         "attr": {
                             "style": "display: none;"
                         }
                     }, {
-                        "title": "<span class='quadSubTitle'>" + "<?php echo mb_strtoupper($ui_holiday_pay, 'UTF-8'); ?>" + "</span>", //Datatables
-                        "label": "<span class='quadSubTitle'>" + "<?php echo $ui_holiday_pay; ?>" + "</span>", //Editor
+                        "title": "<span class='quadSubTitle'>" + "<?php echo mb_strtoupper($ui_moment, 'UTF-8'); ?>" + "</span>", //Datatables
+                        "label": "<span class='quadSubTitle'>" + "<?php echo $ui_moment; ?>" + "</span>", //Editor
                         "data": 'MOMENTO_PAG_FERIAS',
                         "name": 'MOMENTO_PAG_FERIAS',
                         "type": "select",
@@ -1492,7 +1475,7 @@
                         "data": '',
                         "name": 'TIT_PONTO',
                         "type": "readonly",
-                        "className": "none",
+                        "className": "title none",
                         "defaultContent": "", //Must be used on STATIC columns content. On this case classes make there way...
                         "attr": {
                             "style": "display: none;"
@@ -1500,22 +1483,24 @@
                     }, {
                         "title": "<span class='quadSubTitle'>" + "<?php echo mb_strtoupper($ui_begin, 'UTF-8'); ?>" + "</span>", //Datatables :: Original
                         "label": "<span class='quadSubTitle'>" + "<?php echo $ui_begin; ?>" + "</span>", //Editor
+                        "fieldInfo": "<?php echo $error_time24Minutes; ?>",
                         "data": 'INICIO_NOITE',
                         "name": 'INICIO_NOITE',
                         "className": "none visibleColumn right",
                         "attr": {
                             "class": "form-control toRight",
-                            "style": "width: 20%;"
+                            "style": "width: 22%;"
                         }
                     }, {
                         "title": "<span class='quadSubTitle'>" + "<?php echo mb_strtoupper($ui_end, 'UTF-8'); ?>" + "</span>", //Datatables :: Original
                         "label": "<span class='quadSubTitle'>" + "<?php echo $ui_end; ?>" + "</span>", //Editor
+                        "fieldInfo": "<?php echo $error_time24Minutes; ?>",
                         "data": 'FIM_NOITE',
                         "name": 'FIM_NOITE',
                         "className": "none visibleColumn right",
                         "attr": {
                             "class": "form-control toRight",
-                            "style": "width: 20%;"
+                            "style": "width: 22%;"
                         }
                     }, {
                         "title": "<span class='quadTitle'>" + "<?php echo mb_strtoupper($ui_official_reports, 'UTF-8'); ?>" + "</span>", //Datatables :: Original
@@ -1523,7 +1508,7 @@
                         "data": '',
                         "name": 'TIT_RELATORIOS',
                         "type": "readonly",
-                        "className": "none",
+                        "className": "title none",
                         "defaultContent": "", //Must be used on STATIC columns content. On this case classes make there way...
                         "attr": {
                             "style": "display: none;"
@@ -1538,7 +1523,7 @@
                         "attr": {
                             "domain-list": true,
                             "dependent-group": 'DG_ACTIVIDADES_ECONOMICAS',
-                            "class": "form-control",
+                            "class": "form-control complexList chosen",
                             "name": 'ACTIV_ECON_QP'
                         },
                         "render": function (val, type, row) {
@@ -1595,7 +1580,7 @@
                         "name": 'DSP_ED',
                         "type": "select",
                         "className": "visibleColumn",
-                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...
+                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...                    
                         "attr": {
                             "dependent-group": "ENTIDADES_DESCONTO",
                             "dependent-level": 1,
@@ -1678,6 +1663,7 @@
                             maxlength: 10
                         },
                         "DSP_ESTAB": {
+                            required: true,
                             maxlength: 80,
                         },
                         "DSR_ESTAB": {
@@ -1769,9 +1755,9 @@
                 },
                 //"initialWhereClause": "",
                 "order_by": "ID_SETOR",
-                "recordBundle": 3,
-                "pageLenght": 3,
-                "scrollY": "117",
+                "recordBundle": 4,
+                "pageLenght": 4,
+                "scrollY": "132",
                 "responsive": true,
                 "pageResize": true, //PLUGIN :: dataTables.pageResize.min.js
                 "tableCols": [
@@ -1857,7 +1843,7 @@
                         "data": '',
                         "name": 'TIT_BOLSA_MANUT',
                         "type": "readonly",
-                        "className": "none",
+                        "className": "title none",
                         "defaultContent": "", //Must be used on STATIC columns content. On this case classes make there way...
                         "attr": {
                             "style": "display: none;"
@@ -2025,9 +2011,9 @@
             };
             DG_SETORES = new QuadTable();
             DG_SETORES.initTable($.extend({}, datatable_instance_defaults, optionDG_SETORES));
-            //END Sectores
+            //END Sectores    
 
-            // Estab. Situação na Atividade ::
+            // Estab. Situação na Atividade :: 
             var optionsDG_ESTAB_SITUACOES = {
                 "tableId": "DG_ESTAB_SITUACOES",
                 "table": "DG_ESTAB_SITUACOES",
@@ -2045,9 +2031,9 @@
                     }
                 },
                 "order_by": "DT_INI DESC",
-                "recordBundle": 3,
-                "pageLenght": 3,
-                "scrollY": "117",
+                "recordBundle": 4,
+                "pageLenght": 4,
+                "scrollY": "132",
                 "tableCols": [
                     {
                         "responsivePriority": 1,
@@ -2231,7 +2217,7 @@
                 "order_by": "CD_DIRECAO",
                 "recordBundle": 4,
                 "pageLenght": 4,
-                "scrollY": "117",
+                "scrollY": "132",
                 "responsive": true,
                 "pageResize": true, //PLUGIN :: dataTables.pageResize.min.js
                 "tableCols": [
@@ -2406,9 +2392,9 @@
                     }
                 },
                 "order_by": "CD_DEPT",
-                "recordBundle": 3,
-                "pageLenght": 3,
-                "scrollY": "117",
+                "recordBundle": 4,
+                "pageLenght": 4,
+                "scrollY": "132",
                 "tableCols": [
                     {
                         "responsivePriority": 1,
@@ -2566,7 +2552,7 @@
             };
             DG_DEPARTAMENTOS = new QuadTable();
             DG_DEPARTAMENTOS.initTable($.extend({}, datatable_instance_defaults, optionsDG_DEPARTAMENTOS));
-            //END Departamentos
+            //END Departamentos     
 
             //Entidades Internas
             var optionDG_ENTIDADES_INTERNAS = {
@@ -2587,9 +2573,9 @@
                 "detailsObjects": ['DG_ENTIDADE_INTERNA_TRADS'],
                 //"initialWhereClause": "",
                 "order_by": "CD_ENT_INT",
-                "recordBundle": 5,
-                "pageLenght": 5,
-                "scrollY": "156",
+                "recordBundle": 4,
+                "pageLenght": 4,
+                "scrollY": "132",
                 "responsive": true,
                 "pageResize": true, //PLUGIN :: dataTables.pageResize.min.js
                 "tableCols": [
@@ -2646,7 +2632,7 @@
                         "name": 'DSP_SITUACAO_EI',
                         "type": "select",
                         "className": "visibleColumn",
-                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...
+                        //"renew": true, //FORÇA A POPULAÇÃO DA LISTA NO LANDING E NOS FILTROS (CREATE e EDIT). NA PESQUISA USA O DO LANDING...                    
                         "attr": {
                             "dependent-group": "ENTIDADES_INTERNAS",
                             "dependent-level": 1,
@@ -2775,9 +2761,9 @@
                 "order": false,
                 "recordBundle": 4, // number of records returned by server on SELECT operation
                 "pageLenght": 4, // for the moment use the same as recordBundle
-                "scrollY": "117", //height in pixels -- mandatory,
+                "scrollY": "132", //height in pixels -- mandatory,
                 "responsive": true,
-                "pageResize": true, //PLUGIN :: dataTables.pageResize.min.js
+                "pageResize": true, //PLUGIN :: dataTables.pageResize.min.js            
                 "tableCols": [
                     {
                         "responsivePriority": 1,
@@ -2939,6 +2925,7 @@
                             maxlength: 80,
                         },
                         "DSR_TRAD": {
+                            required: true,
                             maxlength: 25,
                         },
                         "DT_FIM": {
@@ -2980,12 +2967,12 @@
                         "EMPRESA": "EMPRESA"
                     }
                 },
-                //"detailsObjects": [''],
+                //"detailsObjects": [''], 
                 //"initialWhereClause": "",
                 "order_by": "NVL(CD_ESTRUTURA_PAI, CD_ESTRUTURA), CD_ESTRUTURA",
-                "recordBundle": 10,
-                "pageLenght": 10,
-                "scrollY": "351",
+                "recordBundle": 9,
+                "pageLenght": 9,
+                "scrollY": "352",
                 "responsive": true,
                 "pageResize": true, //PLUGIN :: dataTables.pageResize.min.js
                 "tableCols": [
@@ -3199,7 +3186,15 @@
                 if (el.css('display') !== 'none' && (el.attr('disabled') === undefined || el.attr('disabled') === false)) { //SÓ SE O BOTÃO ESTIVER VISÍVEL e ENABLED
                     el.trigger('click');
                 }
-            });
+            });  
+            
+            /* QUADFORMS :: Empresas Detalhes :: DOUBLE-CLICK -> EDIT RECORD */
+            $('#DG_DET_EMPRESA').dblclick(function () {
+                var el = $("#DG_DET_EMPRESA").find("[data-form-action='edit']");
+                if (el.css('display') !== 'none' && (el.attr('disabled') === undefined || el.attr('disabled') === false)) { //SÓ SE O BOTÃO ESTIVER VISÍVEL e ENABLED
+                    el.trigger('click');
+                }
+            });              
         }
         //END Events Definition
 
