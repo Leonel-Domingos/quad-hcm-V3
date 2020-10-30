@@ -1,0 +1,10 @@
+{
+    "RHID_CURRENT_ACCOUNTS":{
+        "workflow": false,
+        "crud":[false,false,false],
+        "access":false,
+        "rgpd":{
+
+        }
+    }
+}

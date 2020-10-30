@@ -1,0 +1,78 @@
+{
+    "RH_ID_AUSENCIAS":{
+        "workflow": {
+            "mode":"postponed",
+            "showWorkflowOnEdit":true,
+            "update":"record"
+        },
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_FERIAS":{
+        "workflow": {
+            "mode":"postponed",
+            "showWorkflowOnEdit":true,
+            "update":"record"
+        },
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_DET_ADAPTABILIDADES":{
+        "workflow": {
+            "mode":"postponed",
+            "showWorkflowOnEdit":true,
+            "update":"record"
+        },
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_TS_HV":{
+        "workflow": {
+            "mode":"postponed",
+            "showWorkflowOnEdit":true,
+            "update":"record"
+        },
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_MARCACOES":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_DC_DEBITOS":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_ESCALAS_HORARIAS":{
+        "workflow": {
+            "mode":"postponed",
+            "showWorkflowOnEdit":true,
+            "update":"record"
+        },
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    }
+}

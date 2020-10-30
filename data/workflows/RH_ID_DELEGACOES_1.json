@@ -1,0 +1,10 @@
+{
+    "RH_ID_DELEGACOES":{
+        "workflow": false,
+        "crud":[false,false,false],
+        "access":false,
+        "rgpd":{
+
+        }
+    }
+}

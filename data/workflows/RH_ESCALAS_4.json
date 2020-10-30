@@ -1,0 +1,10 @@
+{
+    "RH_ESCALAS":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    }
+}

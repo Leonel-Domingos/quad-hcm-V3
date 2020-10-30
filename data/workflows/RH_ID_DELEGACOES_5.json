@@ -1,0 +1,14 @@
+{
+    "RH_ID_DELEGACOES":{
+        "workflow": {
+            "mode":"postponed",
+            "showWorkflowOnEdit":true,
+            "update":"record"
+        },
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    }
+}

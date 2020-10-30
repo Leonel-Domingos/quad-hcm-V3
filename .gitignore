@@ -1,0 +1,17 @@
+vendor
+.env
+logs
+cache
+tmp
+.gitignore
+.htaccess
+.idea/Quad-HCM-V3.iml
+.idea/dataSources.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/php.xml
+CHANGELOG.md
+README.md
+README_dist.md
+

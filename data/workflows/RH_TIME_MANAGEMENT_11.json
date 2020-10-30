@@ -1,0 +1,58 @@
+{
+    "RH_ID_AUSENCIAS":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_FERIAS":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_DET_ADAPTABILIDADES":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_TS_HV":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_MARCACOES":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_DC_DEBITOS":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    },
+    "RH_ID_ESCALAS_HORARIAS":{
+        "workflow": false,
+        "crud":[true,true,true],
+        "access":true,
+        "rgpd":{
+
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "RHID_JUDICIAL_DISCOUNTS":{
+        "workflow": false,
+        "crud":[false,false,false],
+        "access":false,
+        "rgpd":{
+
+        }
+    }
+}
