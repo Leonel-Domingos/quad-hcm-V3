@@ -386,7 +386,7 @@
                     .find(".tblEditBut,.tblDelBut")
                     .attr("disabled", "disabled");
         } else {
-            
+
             $(selector)
                     .find("a[data-form-action=edit]")
                     .hide();
@@ -419,7 +419,8 @@
                         .next(".child")
                         .find("[data-dt-column='" + target + "']")
                         .addClass(quadConfig.workflow.classNames.quadTable.column)
-                        .attr("colName", _.find(obj.tableCols, {name: o.COLUNA})["name"]);
+                        .attr("colName", _.find(obj.tableCols, {name: o.COLUNA})["name"])
+                         .attr("data-instance", obj.tableId);;
             }, 1000);
         } else {
             //se for uma table e a cluna for de documento e nao for visivel o documento e sim o icon ...
@@ -1079,28 +1080,25 @@
                         var target = _.find(obj.tableCols, {name: elem.COLUNA});
                         if (target) {
                             if (target.attr && target.attr["dependent-group"]) {
-                                if (target.attr["complexList"]) {
+                                if (target.attr["dependent-level"]) { //distingue uma complexList de um domain
+
                                     decodedAnt = _.find(obj.getComplexListIndex(target), {
                                         VAL: Object.values(JSON.parse(elem.CTXLIST_VLR_ANT)).join("@")
-                                    })[target.attr["desigcolumn"]];
+                                    })[target.attr["desigColumn"].replace(quadConfig.regExpressions.alias, "")];
                                     decodedPos = _.find(obj.getComplexListIndex(target), {
                                         VAL: Object.values(JSON.parse(elem.CTXLIST_VLR_POS)).join("@")
-                                    })[target.attr["desigcolumn"]];
+                                    })[target.attr["desigColumn"].replace(quadConfig.regExpressions.alias, "")];
                                 } else {
                                     decodedAnt = _.find(
-                                            initApp.joinsData[target.attr("dependent-group")],
+                                            initApp.joinsData[target.attr["dependent-group"]],
                                             {
-                                                RV_LOW_VALUE: JSON.parse(elem.CTXLIST_VLR_ANT)[
-                                                        "RV_LOW_VALUE"
-                                                ]
+                                                RV_LOW_VALUE: elem.VLR_ANT
                                             }
                                     )["RV_MEANING"];
                                     decodedPos = _.find(
-                                            initApp.joinsData[target.attr("dependent-group")],
+                                            initApp.joinsData[target.attr["dependent-group"]],
                                             {
-                                                RV_LOW_VALUE: JSON.parse(elem.CTXLIST_VLR_POS)[
-                                                        "RV_LOW_VALUE"
-                                                ]
+                                                RV_LOW_VALUE: elem.VLR_POS
                                             }
                                     )["RV_MEANING"];
                                 }
